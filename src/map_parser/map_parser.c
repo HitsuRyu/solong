@@ -23,6 +23,8 @@ void	map_cleaner(int errno, char **map)
 		write(1, "Error\nSize error.\n", 18);
 	if (errno == 3)
 		write(1, "Error\nContent error.\n", 21);
+	if (errno == 4)
+		write(1, "MLX init error\n", 15);
 	while (map[i] >= (char *) NULL)
 	{
 		free(map[i]);
@@ -93,6 +95,8 @@ char	**map_parser(char *filename)
 	check_filename(filename, fd);
 	strs = str_counter(filename);
 	map = malloc(sizeof(char *) * strs + 1);
+	if (!map)
+		exit(-1);
 	while (i < strs)
 		get_next_line(fd, &map[i++]);
 	close(fd);

@@ -10,12 +10,15 @@ OBJ		=	$(SRC:.c=.o)
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 HEADER_DIR = ./includes
+HEADER	   = $(HEADER_DIR)/mlx.h \
+			 $(HEADER_DIR)/libft.h \
+			 $(HEADER_DIR)/so_long.h
 			
 all: $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) : $(OBJ) $(HEADER)
 	$(MAKE) -C $(LIBFTPATH)
-	$(CC) $(OBJ) -L./src -lmlx -framework OpenGL -framework AppKit -L$(LIBFTPATH) -lft -o $@
+	$(CC) $(OBJ) -L./src -lmlx_Linux -lXext -lX11 -L$(LIBFTPATH) -lft -o $@
 
 %.o : %.c
 	$(CC) $(CFLAGS) $< -c -I$(HEADER_DIR) -o $@

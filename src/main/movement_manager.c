@@ -14,16 +14,16 @@
 
 void	movement_manager(t_info *info, int keycode)
 {
-	if (keycode == 1 && info->map[info->player.y_pos \
+	if (keycode == 0x73 && info->map[info->player.y_pos \
 	+ 1][info->player.x_pos] != '1')
 		move_player(info, 0, 1);
-	if (keycode == 13 && info->map[info->player.y_pos \
+	if (keycode == 0x77 && info->map[info->player.y_pos \
 	- 1][info->player.x_pos] != '1')
 		move_player(info, 0, -1);
-	if (keycode == 0 && info->map[info->player.y_pos][info->player.x_pos \
+	if (keycode == 0x61 && info->map[info->player.y_pos][info->player.x_pos \
 	- 1] != '1')
 		move_player(info, -1, 0);
-	if (keycode == 2 && info->map[info->player.y_pos][info->player.x_pos \
+	if (keycode == 0x64 && info->map[info->player.y_pos][info->player.x_pos \
 	+ 1] != '1')
 		move_player(info, 1, 0);
 }
@@ -35,13 +35,12 @@ void	move_player(t_info *info, int x_offset, int y_offset)
 	{
 		draw_new_pos(info, x_offset, y_offset);
 	}
-	if (info->map[info->player.y_pos + y_offset][info->player.x_pos \
+	else if (info->map[info->player.y_pos + y_offset][info->player.x_pos \
 	+ x_offset] == 'C')
 	{
 		draw_new_pos_coin(info, x_offset, y_offset);
 	}
-	if (info->map[info->player.y_pos + y_offset][info->player.x_pos \
-	+ x_offset] == 'E')
+	else
 	{
 		if (info->coins_left == 0)
 			map_cleaner(0, info->map);

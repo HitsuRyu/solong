@@ -15,10 +15,12 @@
 void	initialization(t_info *info)
 {
 	info->mlx = mlx_init();
+	if (!info->mlx)
+		map_cleaner(4, info->map);
 	get_sprite_info(info);
 	get_window_info(info);
-	draw_map(info);
 	get_player_info(info);
+	draw_map(info);
 	mlx_put_image_to_window(info->mlx, info->window.win, \
 	info->sprite.player, info->player.x_pos * 50, info->player.y_pos * 50);
 }
@@ -40,6 +42,8 @@ void	get_sprite_info(t_info *info)
 	info->sprite.exit = mlx_xpm_file_to_image(info->mlx, \
 	"./src/initialization/xpm/exit.xpm", \
 	&info->sprite.width, &info->sprite.height);
+	if (!info->sprite.coin || !info->sprite.empty || !info->sprite.exit || !info->sprite.player || !info->sprite.wall)
+		map_cleaner(4, info->map);
 }
 
 void	get_window_info(t_info *info)
@@ -53,6 +57,8 @@ void	get_window_info(t_info *info)
 	info->window.height = 50 * i;
 	info->window.win = mlx_new_window(info->mlx, info->window.width, \
 	info->window.height, "./so_long");
+	if (!info->window.win)
+		map_cleaner(4, info->map);
 }
 
 void	get_player_info(t_info *info)
