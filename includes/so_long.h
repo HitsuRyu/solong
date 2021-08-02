@@ -6,7 +6,7 @@
 /*   By: cdahlia <cdahlia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 19:05:36 by cdahlia           #+#    #+#             */
-/*   Updated: 2021/08/02 15:56:28 by cdahlia          ###   ########.fr       */
+/*   Updated: 2021/08/02 17:28:59 by cdahlia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_items
 int		key_hook(int keycode, t_info *info);
 void	movement_manager(t_info *info, int keycode);
 void	move_player(t_info *info, int x_offset, int y_offset);
+void	print_moves(t_info *info);
 void	draw_new_pos(t_info *info, int x_offset, int y_offset);
 void	draw_new_pos_coin(t_info *info, int x_offset, int y_offset);
 char	**map_parser(char *filename);
