@@ -6,7 +6,7 @@
 /*   By: cdahlia <cdahlia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 19:03:30 by cdahlia           #+#    #+#             */
-/*   Updated: 2021/07/30 19:03:30 by cdahlia          ###   ########.fr       */
+/*   Updated: 2021/07/31 12:19:45 by cdahlia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	movement_manager(t_info *info, int keycode)
 {
-	if (keycode == 0x73 && info->map[info->player.y_pos \
+	if (keycode == 1 && info->map[info->player.y_pos \
 	+ 1][info->player.x_pos] != '1')
 		move_player(info, 0, 1);
-	if (keycode == 0x77 && info->map[info->player.y_pos \
+	if (keycode == 13 && info->map[info->player.y_pos \
 	- 1][info->player.x_pos] != '1')
 		move_player(info, 0, -1);
-	if (keycode == 0x61 && info->map[info->player.y_pos][info->player.x_pos \
+	if (keycode == 0 && info->map[info->player.y_pos][info->player.x_pos \
 	- 1] != '1')
 		move_player(info, -1, 0);
-	if (keycode == 0x64 && info->map[info->player.y_pos][info->player.x_pos \
+	if (keycode == 2 && info->map[info->player.y_pos][info->player.x_pos \
 	+ 1] != '1')
 		move_player(info, 1, 0);
 }

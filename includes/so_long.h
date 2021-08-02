@@ -6,7 +6,7 @@
 /*   By: cdahlia <cdahlia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 19:05:36 by cdahlia           #+#    #+#             */
-/*   Updated: 2021/07/30 19:05:36 by cdahlia          ###   ########.fr       */
+/*   Updated: 2021/08/02 14:16:21 by cdahlia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct s_sprite
 {
@@ -36,6 +35,8 @@ typedef struct s_window
 	void	*win;
 	int		width;
 	int		height;
+	int		screen_width;
+	int		screen_height;
 }				t_window;
 
 typedef struct s_player
@@ -62,13 +63,11 @@ typedef struct s_items
 	int	e;
 }				t_items;
 
-//MAIN + MOVEMENT
 int		key_hook(int keycode, t_info *info);
 void	movement_manager(t_info *info, int keycode);
 void	move_player(t_info *info, int x_offset, int y_offset);
 void	draw_new_pos(t_info *info, int x_offset, int y_offset);
 void	draw_new_pos_coin(t_info *info, int x_offset, int y_offset);
-
 char	**map_parser(char *filename);
 void	map_cleaner(int errno, char **map);
 void	check_walls(char **map);
@@ -76,7 +75,6 @@ void	check_len(char **map);
 void	check_content(char **map);
 void	check_items(char **map, t_items *items, int i, int j);
 void	init_items(t_items *items);
-
 void	initialization(t_info *info);
 void	get_sprite_info(t_info *info);
 void	get_window_info(t_info *info);

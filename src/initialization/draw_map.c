@@ -6,7 +6,7 @@
 /*   By: cdahlia <cdahlia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 19:01:11 by cdahlia           #+#    #+#             */
-/*   Updated: 2021/07/30 19:01:12 by cdahlia          ###   ########.fr       */
+/*   Updated: 2021/08/02 13:10:37 by cdahlia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,6 @@ void	draw_map(t_info *info)
 		j = 0;
 		i++;
 	}
+	mlx_put_image_to_window(info->mlx, info->window.win, \
+	info->sprite.player, info->player.x_pos * 50, info->player.y_pos * 50);
 }

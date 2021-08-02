@@ -6,7 +6,7 @@
 /*   By: cdahlia <cdahlia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 19:03:36 by cdahlia           #+#    #+#             */
-/*   Updated: 2021/07/30 19:03:36 by cdahlia          ###   ########.fr       */
+/*   Updated: 2021/08/02 12:59:38 by cdahlia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	map_cleaner(int errno, char **map)
 	if (errno == 3)
 		write(1, "Error\nContent error.\n", 21);
 	if (errno == 4)
-		write(1, "MLX init error\n", 15);
+		write(1, "Error\nMLX init error.\n", 22);
 	while (map[i] >= (char *) NULL)
 	{
 		free(map[i]);

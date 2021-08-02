@@ -6,7 +6,7 @@
 /*   By: cdahlia <cdahlia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 19:01:16 by cdahlia           #+#    #+#             */
-/*   Updated: 2021/07/30 19:01:17 by cdahlia          ###   ########.fr       */
+/*   Updated: 2021/08/02 14:13:34 by cdahlia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	initialization(t_info *info)
 	get_window_info(info);
 	get_player_info(info);
 	draw_map(info);
-	mlx_put_image_to_window(info->mlx, info->window.win, \
-	info->sprite.player, info->player.x_pos * 50, info->player.y_pos * 50);
 }
 
 void	get_sprite_info(t_info *info)
@@ -42,7 +40,9 @@ void	get_sprite_info(t_info *info)
 	info->sprite.exit = mlx_xpm_file_to_image(info->mlx, \
 	"./src/initialization/xpm/exit.xpm", \
 	&info->sprite.width, &info->sprite.height);
-	if (!info->sprite.coin || !info->sprite.empty || !info->sprite.exit || !info->sprite.player || !info->sprite.wall)
+	if (!info->sprite.wall || !info->sprite.coin || \
+	!info->sprite.player || !info->sprite.empty || \
+	!info->sprite.exit)
 		map_cleaner(4, info->map);
 }
 
@@ -58,6 +58,11 @@ void	get_window_info(t_info *info)
 	info->window.win = mlx_new_window(info->mlx, info->window.width, \
 	info->window.height, "./so_long");
 	if (!info->window.win)
+		map_cleaner(4, info->map);
+	mlx_get_screen_size(info->mlx, &info->window.screen_width, \
+	&info->window.screen_height);
+	if (info->window.width > info->window.screen_width || \
+	info->window.height > info->window.screen_height)
 		map_cleaner(4, info->map);
 }
 
