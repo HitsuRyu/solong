@@ -3,3 +3,6 @@ libft.a
 .DS_Store
 libmlx.dylib
 so_long
+*.swift
+*.swiftmodule
+*.swiftdoc
