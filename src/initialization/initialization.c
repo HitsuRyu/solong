@@ -6,7 +6,7 @@
 /*   By: cdahlia <cdahlia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 19:01:16 by cdahlia           #+#    #+#             */
-/*   Updated: 2021/08/02 15:56:19 by cdahlia          ###   ########.fr       */
+/*   Updated: 2021/08/03 20:02:24 by cdahlia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ void	get_window_info(t_info *info)
 		i++;
 	info->window.width = 50 * ft_strlen(info->map[0]);
 	info->window.height = 50 * i + 50;
-	info->window.win = mlx_new_window(info->mlx, info->window.width, \
-	info->window.height, "./so_long");
-	if (!info->window.win)
-		map_cleaner(4, info->map);
 	mlx_get_screen_size(info->mlx, &info->window.screen_width, \
 	&info->window.screen_height);
 	if (info->window.width > info->window.screen_width || \
 	info->window.height > info->window.screen_height)
+		map_cleaner(4, info->map);
+	info->window.win = mlx_new_window(info->mlx, info->window.width, \
+	info->window.height, "./so_long");
+	if (!info->window.win)
 		map_cleaner(4, info->map);
 }
 
