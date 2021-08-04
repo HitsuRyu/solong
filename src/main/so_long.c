@@ -14,12 +14,12 @@
 
 int	key_hook(int keycode, t_info *info)
 {
-	if (keycode == 53)
+	if (keycode == LINUX_Q)
 	{
 		mlx_destroy_window(info->mlx, info->window.win);
 		map_cleaner(0, info->map);
 	}
-	if ((keycode >= 0 && keycode <= 2) || (keycode == 13))
+	if ((keycode >= LINUX_A && keycode <= LINUX_W))
 		movement_manager(info, keycode);
 	return (0);
 }

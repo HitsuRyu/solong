@@ -2,6 +2,7 @@ libft.a
 *.o
 .DS_Store
 libmlx.dylib
+libmlx.a
 so_long
 *.swiftmodule
 *.swiftdoc

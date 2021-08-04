@@ -1,6 +1,6 @@
 NAME		=	libft.a
 HEADER		=	libft.h
-CC			=	gcc
+CC			=	clang
 CFLAGS		=	-Wall -Wextra -Werror -c
 SRCS		=				ft_atoi.c \
 							ft_bzero.c \

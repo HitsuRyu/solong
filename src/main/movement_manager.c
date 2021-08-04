@@ -14,16 +14,16 @@
 
 void	movement_manager(t_info *info, int keycode)
 {
-	if (keycode == 1 && info->map[info->player.y_pos \
+	if (keycode == LINUX_S && info->map[info->player.y_pos \
 	+ 1][info->player.x_pos] != '1')
 		move_player(info, 0, 1);
-	if (keycode == 13 && info->map[info->player.y_pos \
+	if (keycode == LINUX_W && info->map[info->player.y_pos \
 	- 1][info->player.x_pos] != '1')
 		move_player(info, 0, -1);
-	if (keycode == 0 && info->map[info->player.y_pos][info->player.x_pos \
+	if (keycode == LINUX_A && info->map[info->player.y_pos][info->player.x_pos \
 	- 1] != '1')
 		move_player(info, -1, 0);
-	if (keycode == 2 && info->map[info->player.y_pos][info->player.x_pos \
+	if (keycode == LINUX_D && info->map[info->player.y_pos][info->player.x_pos \
 	+ 1] != '1')
 		move_player(info, 1, 0);
 }
