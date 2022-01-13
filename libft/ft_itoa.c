@@ -71,12 +71,12 @@ char	*ft_itoa(int n)
 	char		*buf;
 	long int	num;
 	size_t		nlen;
-	size_t		i;
+	// size_t		i;
 
 	buf = NULL;
 	num = n;
 	nlen = ft_intlen(num);
-	i = 0;
+	// i = 0;
 	if (num < 0)
 	{
 		buf = malloc((nlen + 2) * sizeof(char));

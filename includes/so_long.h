@@ -19,13 +19,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define LINUX_Q 113
-# define LINUX_W 119
-# define LINUX_A 97
-# define LINUX_S 115
-# define LINUX_D 100
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_Q 113
 
-# define MAC_ESC 53
 # define MAC_W 13
 # define MAC_A 0
 # define MAC_S 1

@@ -1,9 +1,11 @@
-CC		=	clang
+CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 NAME	=	so_long
 LIBFTPATH =	./libft
 LIBFT	=	libft.a
-MLXPATH	=	minilibx-linux
+# MLXPATH =	mlx_MacOS
+# MLX		=	libmlx.dylib
+MLXPATH	=	mlx_Linux
 MLX		=	libmlx.a
 SRC		=	src/initialization/draw_map.c \
 			src/initialization/initialization.c \
@@ -25,7 +27,8 @@ $(NAME) : $(OBJ)
 	cp $(LIBFTPATH)/$(LIBFT) .
 	$(MAKE) -C $(MLXPATH)
 	cp $(MLXPATH)/$(MLX) .
-	$(CC) $(CFLAGS) $(OBJ) -L. -lft -L. -lmlx -lXext -lX11 -o $@
+	$(CC) $(CFLAGS) $(OBJ) -L. -lmlx -lft -L/usr/lib -I$(INCLUDES) -lXext -lX11 -lm -lz -o $@
+#	$(CC) $(CFLAGS) $(OBJ) -L. -lft -L. -lmlx -framework OpenGL -framework AppKit -o $@
 
 clean:
 	$(MAKE) -C $(LIBFTPATH) clean
@@ -35,7 +38,8 @@ clean:
 fclean: clean
 	$(MAKE) -C $(LIBFTPATH) fclean
 	$(MAKE) -C $(MLXPATH) clean
-	rm -f libmlx.dylib
+#	rm -f libmlx.dylib
+	rm -f libmlx.a
 	rm -f $(LIBFT)
 	rm -f $(NAME)
 
